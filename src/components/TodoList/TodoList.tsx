@@ -1,7 +1,8 @@
 import React from "react";
 import { MdOutlineDone } from "react-icons/md";
 import { CiCircleRemove } from "react-icons/ci";
-import './todolist.css'
+import { FaMinusCircle } from "react-icons/fa"; // Importera minus-ikon
+import "./todolist.css";
 
 interface ListItem {
   id: number;
@@ -17,6 +18,7 @@ interface TodoListProps {
 }
 
 const TodoList: React.FC<TodoListProps> = ({ todos, setTodos }) => {
+  // Funktion för att hantera klick på en todo (markera som slutförd eller inte)
   const handleListClick = (id: number) => {
     setTodos(
       todos.map((todo) =>
@@ -25,19 +27,45 @@ const TodoList: React.FC<TodoListProps> = ({ todos, setTodos }) => {
     );
   };
 
+  // Funktion för att ta bort en todo från listan
+  const handleRemoveTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
-    <div className="todo-container">
-      <ul>
+    <div className="todo-wrapper">
+      <ul className="todo-ul">
         {todos.map((todo) => (
-          <li className="todo-container"
+          <li
+            className="todo-container"
             key={todo.id}
             onClick={() => handleListClick(todo.id)}
-            style={{ textDecoration: todo.completed ? "line-through" : "none" }}
+            style={{
+              textDecoration: todo.completed ? "line-through" : "none",
+              color: todo.completed ? "gray" : "black",
+            }}
           >
+            <div className="col-3">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleRemoveTodo(todo.id);
+                }}
+                className="remove-button"
+              >
+                <FaMinusCircle className="remove-icon" />
+              </button>
+            </div>
             <div className="col-1">
-              <h2>{todo.text}</h2>
-              <p><strong>Category:</strong>{todo.category}</p>
-              <p><strong>Location:</strong>{todo.whereToDo}</p>
+              <h2 className="bottom-margin">{todo.text}</h2>
+              <p>
+                <strong>Category:</strong>
+                {todo.category}
+              </p>
+              <p>
+                <strong>Location:</strong>
+                {todo.whereToDo}
+              </p>
             </div>
             <div className="col-2">
               {todo.completed ? (

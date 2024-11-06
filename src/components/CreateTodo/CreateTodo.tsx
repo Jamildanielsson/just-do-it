@@ -40,8 +40,8 @@ const CreateTodo: React.FC<CreateTodoProps> = ({ addTodo, closeOverlay }) => {
 
   return (
     <div className="overlay">
+      <button className="close-btn" onClick={closeOverlay}>X</button>
       <div className="overlay-content">
-        <button className="close-btn" onClick={closeOverlay}>X</button> {/* Stäng overlayn utan att skapa tom todo */}
         <h3>Add New Todo</h3>
         <form onSubmit={handleSubmit}>
           <div className="form-row">
