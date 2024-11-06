@@ -5,9 +5,9 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 1rem;
-}
-
-.add-button {
+  }
+  
+  .add-button {
     border-radius: 50%;
     border: none;
     outline: none;
@@ -16,4 +16,20 @@
     padding: 1rem 1.5rem;
     font-size: 30px;
     font-weight: 600;
-}
+    /* Gör knappen mindre på små skärmar */
+  }
+  
+  @media (max-width: 700px) {
+    .main-header {
+      flex-direction: column; /* Stänger om knappen så den är över texten */
+      height: auto;
+      padding: 1rem 0.5rem;
+      text-align: center;
+    }
+  
+    .add-button {
+      font-size: 24px; /* Gör knappen mindre på små skärmar */
+      padding: 0.8rem 1.2rem;
+    }
+  }
+  

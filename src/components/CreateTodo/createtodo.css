@@ -1,0 +1,79 @@
+/* Huvudsaklig stil för overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Halvtransparent bakgrund */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Innehåll inuti overlayn */
+  .overlay-content {
+    background-color: white;
+    padding: 20px;
+    width: 40%;
+    height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Stäng-knappen */
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  /* Formulärlayout */
+  .form-row {
+    margin-bottom: 15px;
+  }
+  
+  form input,
+  form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Media query för skärmar som är 700px eller mindre */
+@media (max-width: 700px) {
+    .overlay-content {
+      width: 90%;
+      height: auto; /* Gör overlayn mer flexibel */
+      padding: 15px;
+    }
+  
+    .form-row {
+      margin-bottom: 10px;
+    }
+  
+    .close-btn {
+      font-size: 20px;
+    }
+  }
