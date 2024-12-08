@@ -64,7 +64,7 @@
   }
   
   /* Media query för skärmar som är 700px eller mindre */
-@media (max-width: 700px) {
+@media (max-width: 1024px) {
     .overlay-content {
       width: 90%;
       height: auto; /* Gör overlayn mer flexibel */
