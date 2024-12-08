@@ -8,16 +8,17 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ toggleCreateTodo }) => {
   const currentDate = new Date();
-  const formattedDate = format(currentDate, "MM-dd");
+  const formattedDate = format(currentDate, "dd/MM");
   const dayOfWeek = format(currentDate, "EEEE");
   const year = currentDate.getFullYear();
 
   return (
     <div className="main-header">
       <div className="header-col-1">
+        <h1> {year}</h1>
         <h1>{formattedDate}</h1>
         <h2>
-          {dayOfWeek} {year}
+          {dayOfWeek}
         </h2>
       </div>
       <div className="header-col-2">

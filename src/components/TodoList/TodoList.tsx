@@ -1,8 +1,9 @@
 import React from "react";
-import { MdOutlineDone } from "react-icons/md";
-import { CiCircleRemove } from "react-icons/ci";
 import { FaMinusCircle } from "react-icons/fa"; // Importera minus-ikon
 import "./todolist.css";
+
+import { RiCheckboxBlankCircleLine } from "react-icons/ri";
+import { RiCheckboxCircleLine } from "react-icons/ri";
 
 interface ListItem {
   id: number;
@@ -45,17 +46,6 @@ const TodoList: React.FC<TodoListProps> = ({ todos, setTodos }) => {
               color: todo.completed ? "gray" : "black",
             }}
           >
-            <div className="col-3">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleRemoveTodo(todo.id);
-                }}
-                className="remove-button"
-              >
-                <FaMinusCircle className="remove-icon" />
-              </button>
-            </div>
             <div className="col-1">
               <h2 className="bottom-margin">{todo.text}</h2>
               <p>
@@ -68,11 +58,24 @@ const TodoList: React.FC<TodoListProps> = ({ todos, setTodos }) => {
               </p>
             </div>
             <div className="col-2">
+              <p className="status-text">Status</p>
               {todo.completed ? (
-                <MdOutlineDone className="true-icon" />
+                <RiCheckboxCircleLine className="true-icon" />
               ) : (
-                <CiCircleRemove className="false-icon" />
+                <RiCheckboxBlankCircleLine className="false-icon" />
               )}
+            </div>
+            <div className="col-3">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleRemoveTodo(todo.id);
+                }}
+                className="remove-button"
+              >
+                <p className="status-text">Remove</p>
+                <FaMinusCircle className="remove-icon" />
+              </button>
             </div>
           </li>
         ))}

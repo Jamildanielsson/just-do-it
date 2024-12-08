@@ -35,6 +35,7 @@ const App: React.FC = () => {
     <div className='wrapper'>
       <div className='main-container'>
         <Header toggleCreateTodo={toggleCreateTodo} />
+        <h1 className='create-your-todo'>Today:</h1>
         <TodoList todos={todos} setTodos={setTodos} />
         {showCreateTodo && <CreateTodo addTodo={addTodo} closeOverlay={closeOverlay} />}
       </div>
